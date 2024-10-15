@@ -1,0 +1,14 @@
+services:
+  hls:
+    image: nginx
+    ports:
+      - 8888:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./output:/usr/share/nginx
+  player:
+    image: nginx
+    ports:
+      - 9999:80
+    volumes:
+      - ./player:/usr/share/nginx/html
